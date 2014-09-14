@@ -51,6 +51,8 @@ end
 
 gem 'puma'
 
+gem 'rails_12factor', group: :production
+
 gem 'aws-sdk'
 
 # Use Capistrano for deployment
