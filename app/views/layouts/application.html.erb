@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dr. Rubric</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <script type="text/javascript" src="//use.typekit.net/kyn5cgt.js"></script>
+  <script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+<header class="centered-navigation">
+  <div class="centered-navigation-wrapper">
+    <a href="javascript:void(0)" class="mobile-logo">
+      <img src="/assets/doctor2.png" alt="">
+    </a>
+    <ul class="centered-navigation-menu">
+      <li class="logo">
+        <a href="" class="logo">
+          <img src="/assets/drrubric5.png" alt="">
+        </a>
+      </li>
+    </ul>
+  </div>
+  <div class="top-right-log-in">
+    <% if current_user %>
+    Hello, <%= current_user.email %>.
+    <%= link_to "Log out", logout_path %>
+    <% end %>
+  </div>
+</header>
+<div class="new">
+<% if flash[:alert] %>
+  <p id="alert"><%= flash[:alert] %></p>
+<% end %>
+</div>
+<% if current_user %>
+<nav id="sidenav">
+  <ul class="top">
+    <div class="user-avatar">
+    <li class="user-avatar">
+        <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+          <% if current_user.avatar? %>
+            <div class="current-user-avatar-nav">
+            <div class="current-user-avatar-avatar">
+            <%= image_tag current_user.avatar.url(:thumb) %>
+            </div>
+            </div>
+            <% else %>
+            <div class="current-user-avatar-nav">
+            <div class="current-user-avatar-avatar">
+            <img src="/assets/apple3.png" alt="">
+            </div>
+            </div>
+            <% end %>
+            <div class="current-user-avatar-name">
+            <span><%= current_user.first_name %></span>
+            </div>
+        <% end %>
+    </li>
+    </div>
+    <li class="nav-catalog">
+      <%= link_to user_path(current_user), {controller: "users", action: "show"}, class: "is active" do %>
+        <i class="icon-home">
+        </i>
+        <span>Home</span>
+      <% end %>
+    </li>
+    <li class="nav-catalog">
+      <%= link_to courses_path, {controller: "courses", action: "show"}, class: "is active" do %>
+        <i class="icon-notebook">
+        </i>
+        <span>Courses</span>
+      <% end %>
+    </li>
+    <li class="nav-forum">
+      <%= link_to evals_path, {controller: "evals", action: "show"}, class: "is active" do %>
+        <i class="icon-paste">
+        </i>
+        <span>Evaluations</span>
+      <% end %>
+    </li>
+    <li class="nav-docs">
+      <%= link_to new_user_path, {controller: "users", action: "show"}, class: "is active" do %>
+        <i class="icon-users">
+        </i>
+        <span>TAs</span>
+      <% end %>
+    </li>
+    <li class="nav-docs">
+      <%= link_to edit_user_path(current_user), {controller: "users", action: "edit"}, class: "is active" do %>
+        <i class="icon-cog">
+        </i>
+        <span>Settings</span>
+      <% end %>
+    </li>
+  </ul>
+</nav>
+<% end %>
+<div class="new">
+<%= yield %>
+</div>
+<footer class="footer">
+  <p>&copy; Dr. Rubric 2014. &nbsp;Built by Brandon and Alessia with <a class="heart" href="http://rubyonrails.org/">&hearts;</a></p>
+</footer>
+</body>
+</html>

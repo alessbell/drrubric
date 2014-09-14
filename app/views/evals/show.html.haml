@@ -1,0 +1,13 @@
+.new
+  %h1 #{@eval[:title]}
+  %p= link_to "Edit  ", edit_eval_path(@eval)
+  %p= link_to "Delete", @eval, :confirm => 'Are you sure?', :method => :delete
+  %p Template Type: #{@eval[:template]}
+  %h1 Categories
+  - @eval.categories.each do |category|
+    %h6= category.title
+    Total:
+    = format_score(category.max_score)
+    - category.comments.each do |comment|
+      %li= comment.description
+    %br

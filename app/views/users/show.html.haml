@@ -1,0 +1,39 @@
+.avatar-main-container
+  - if @user.avatar?
+    = image_tag @user.avatar.url(:medium), class: "avatar-frame"
+  .avatar-name-container
+    %br
+    %h2 #{@user.first_name} #{@user.last_name}
+    %h5 #{@user.type}
+    %h6= link_to "Edit My Account", edit_user_path
+  .exit-container-plus
+    = link_to new_eval_path do
+      %i.icon-plus.tooltip-item
+        .tooltip
+          Create Evaluation
+%br
+%h1 Current Courses
+- if @user.type == "Professor" && @active_rosters.empty?
+  %p
+    %i You do not appear to have any courses at the moment. How nice. #{link_to "Start here!", new_course_path }
+- else
+  .vertical-tabs-container
+    .vertical-tabs
+      - @active_rosters.each.with_index do |roster, index|
+        - if index == 0
+          =link_to roster.course.name, "#", class: "js-vertical-tab vertical-tab is-active", rel: "tab#{index}", data: { index: "#{index}"}
+        - else
+          =link_to roster.course.name, "#", class: "js-vertical-tab vertical-tab", rel: "tab#{index}", data: { index: "#{index}"}
+    .vertical-tab-content-container
+      - @active_rosters.each.with_index do |roster, index|
+        - if index == 0
+          =link_to roster.course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading is-active", rel: "tab#{index}"
+          .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+            = render partial: 'course_chart', locals: {course: roster.course, index: index}
+        - else
+          =link_to roster.course.name, "#", class: "js-vertical-tab-accordion-heading vertical-tab-accordion-heading", rel: "tab#{index}"
+          .js-vertical-tab-content.vertical-tab-content{id: "tab#{index}"}
+            = render partial: 'course_chart', locals: {course: roster.course, index: index}
+%h1 Current Sections
+.user-roster-cards
+  = render @active_rosters
