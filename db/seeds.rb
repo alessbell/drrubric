@@ -14,7 +14,7 @@ puts "Creating TA Alessia..."
 assistant = Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"bellisario.alessia@gmail.com", password:"blah")
 puts
 puts "Creating Professor Brandon..."
-Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
+Professor.create(first_name:"Brandon", last_name:"Craft", email:"a_bellisario@hotmail.com", password:"blah")
 puts
 puts "Creating courses..."
 names = [ "Calculus 1060", "Marketing 1010", "Advertising 4360", "Finance with DogeCoin", "Accounting 3500", "Emerging Markets", "Business Ethics 1240" ]
