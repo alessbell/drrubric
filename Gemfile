@@ -49,6 +49,10 @@ end
 # Use unicorn as the app server
 # gem 'unicorn'
 
+gem 'puma'
+
+gem 'aws-sdk'
+
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

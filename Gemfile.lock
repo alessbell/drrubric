@@ -121,6 +121,8 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.9.0)
+      rack (>= 1.1, < 2.0)
     rack (1.5.2)
     rack-contrib (1.1.0)
       rack (>= 0.9.1)
@@ -206,6 +208,7 @@ DEPENDENCIES
   paperclip!
   pg
   pry
+  puma
   rails (= 4.1.1)
   refills
   sass-rails (~> 4.0.3)
