@@ -10,6 +10,7 @@ gem 'sass-rails', '~> 4.0.3'
 gem 'bourbon', '~> 3.2'
 gem 'neat'
 gem 'refills'
+gem 'faker'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .js.coffee assets and views
@@ -41,7 +42,6 @@ group :development do
   gem 'meta_request'
   gem 'better_errors'
   gem 'binding_of_caller'
-  gem 'faker'
   gem 'awesome_print'
 end
 # Use ActiveModel has_secure_password

@@ -10,10 +10,10 @@ Comment.destroy_all
 Roster.destroy_all
 Student.destroy_all
 Grade.destroy_all
-puts "Creating TA Allesia..."
-assistant = Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"alessia@example.com", password:"blah")
+puts "Creating TA Alessia..."
+assistant = Assistant.create(first_name:"Alessia", last_name:"Bellisario", email:"bellisario.alessia@gmail.com", password:"blah")
 puts
-puts "Creating Professor Brando..."
+puts "Creating Professor Brandon..."
 Professor.create(first_name:"Brandon", last_name:"Craft", email:"brancraft@gmail.com", password:"blah")
 puts
 puts "Creating courses..."
