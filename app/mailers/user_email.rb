@@ -8,7 +8,7 @@ class UserEmail < ActionMailer::Base
   #
   def activation_needed_email(user)
     @user = user
-    @url ="http://floating-everglades-1193.herokuapp.com/users/#{user.activation_token}/activate"
+    @url ="http://drrubric.herokuapp.com/users/#{user.activation_token}/activate"
     mail to: user.email, subject: "Welcome to Dr. Rubric #{user.first_name}"
   end
 
@@ -19,7 +19,7 @@ class UserEmail < ActionMailer::Base
   #
   def activation_success_email(user)
     @user = user
-    @url ="http://floating-everglades-1193.herokuapp.com/login"
+    @url ="http://drrubric.herokuapp.com/login"
     mail to: user.email, subject: "#{user.first_name}, your account has been activated!"
   end
 
