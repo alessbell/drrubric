@@ -1,6 +1,7 @@
--if @roster.errors.any?
-  = render 'roster_errors'
-=form_for [@course, @roster] do |f|
+= form_for [@course, @roster] do |f|
+  - if @roster.errors.any?
+    = render 'roster_errors'
+    %br
   .user-input
     = f.label :section_name, "Section Name:"
     = f.text_field :section_name

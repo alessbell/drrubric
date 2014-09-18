@@ -6,6 +6,9 @@ class Course < ActiveRecord::Base
   has_and_belongs_to_many :assistants, join_table: 'assistants_courses'
   has_and_belongs_to_many :evals
 
+  validates :name, presence: true
+  validates :description, presence: true
+
   def average_score
     score_counter = 0
     self.grades.each do |grade|

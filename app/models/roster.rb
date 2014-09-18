@@ -5,6 +5,13 @@ class Roster < ActiveRecord::Base
   has_many :students, dependent: :destroy
   has_many :grades, through: :students
   accepts_nested_attributes_for :students
+
+  validates :section_name, presence: true
+  validates :start_date, presence: true
+  validates :end_date, presence: true
+  validates :location, presence: true
+  validates :students, presence: true
+
   before_save :set_status
 
   def as_csv

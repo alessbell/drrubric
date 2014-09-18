@@ -4,6 +4,5 @@
     prohibited this course from saving:
 
   %ul
-    -errors.full_messages.each do |msg|
-    %li= msg
-
+    - @course.errors.full_messages.each do |msg|
+      %li= msg

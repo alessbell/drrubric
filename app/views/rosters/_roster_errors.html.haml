@@ -4,5 +4,5 @@
     prohibited this roster from saving:
 
   %ul
-    -errors.full_messages.each do |msg|
-    %li= msg
+    - @roster.errors.full_messages.each do |msg|
+      %li= msg

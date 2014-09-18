@@ -1,6 +1,7 @@
--if @course.errors.any?
-  = render 'course_errors'
 =form_for @course do |f|
+  -if @course.errors.any?
+    = render 'course_errors'
+    %br
   .user-input
     = f.label :name, "Course Name:"
     = f.text_field :name

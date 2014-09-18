@@ -12,7 +12,6 @@ class CoursesController < ApplicationController
     if @course.save
       redirect_to @course, notice: "#{@course.name} was created!"
     else
-      flash.now[:alert] = "Your course was not saved..."
       render :new
     end
   end
