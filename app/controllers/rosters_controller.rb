@@ -52,7 +52,7 @@ class RostersController < ApplicationController
 
       private
   def roster_params
-    params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id, students_attributes: [:file])
+    params.require(:roster).permit(:section_name, :meet_time, :location, :meet_day, :course_id, :start_date, :end_date, students_attributes: [:file])
   end
 
   def load_course
